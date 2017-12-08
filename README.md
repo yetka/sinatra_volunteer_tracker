@@ -9,7 +9,14 @@ It is an application that tracks projects and the volunteers working on them. Ea
 
 ## Setup/Installation Requirements
 
-* Open [link](https://) in your browser.
+* Clone GitHub repository to your personal device using command $ git clone https://yetka.github.io/sinatra_volunteer_tracker
+* run $ psql
+* create database called volunteer_tracker
+* add table called projects with columns name type varchar add primary key
+* add table called volunteers with columns name type varchar add project_id type integer
+* go to root directory of this project and run $ ruby app.rb
+* open localhost in your browser 
+
 
 ## Support and contact details
 
