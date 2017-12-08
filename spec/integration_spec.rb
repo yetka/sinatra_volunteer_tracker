@@ -26,3 +26,14 @@ describe("users viewing label for new volunteer", {:type => :feature}) do
     expect(page).to have_content('Add Volunteer to any Project:')
   end
 end
+
+describe("users viewing list of projects to edit", {:type => :feature}) do
+  it("allows an user to see a list of projects to edit") do
+    visit('/')
+    click_link('Click here to add new Project')
+    fill_in('name', :with => 'project1')
+    click_button("Add Project")
+    visit('/')
+    expect(page).to have_content('project1')
+  end
+end
