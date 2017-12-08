@@ -8,4 +8,10 @@ describe(Volunteer) do
       expect(new_volunteer).to(be_an_instance_of(Volunteer))
     end
   end
+
+  describe(".all") do
+    it("is empty in the beginning") do
+      expect(Volunteer.all).to(eq([]))
+    end
+  end
 end
