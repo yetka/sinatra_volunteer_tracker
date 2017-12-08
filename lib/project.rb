@@ -5,9 +5,8 @@ class Project
     @name = attributes.fetch(:name)
     @id = attributes.fetch(:id)
   end
-end
 
-def self.all
+  def self.all
     returned_projects = DB.exec("SELECT * FROM projects;")
     projects = []
     returned_projects.each() do |project|
@@ -17,3 +16,5 @@ def self.all
     end
     projects
   end
+
+end
