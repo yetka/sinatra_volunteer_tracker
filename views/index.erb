@@ -4,12 +4,14 @@
 
 <p><a href="/volunteer_form">Click here to add new Volunteer to a Project</a></p>
 
+<p><a href="/lists">Click here to see projects list</a></p>
+
 <% if @projects.any?() %>
-<p>Click on a Project to see its volunteers:</p>
+<p>Click on a Project to update or delete it:</p>
 
 <ul>
   <% @projects.each do |project| %>
-  <li><a href="/projects/<%= project.id() %>"><%= project.name() %></a></li>
+  <li><a href="/projects/<%= project.id() %>/edit"><%= project.name() %></a></li>
   <% end %>
 </ul>
 <% else %>
