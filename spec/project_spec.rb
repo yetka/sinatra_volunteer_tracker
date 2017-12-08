@@ -57,4 +57,15 @@ describe(Project) do
     end
   end
 
+  describe("#delete") do
+    it("lets you delete a project from the database") do
+      new_project1 = Project.new({:name => "project1", :id => nil})
+      new_project1.save()
+      new_project2 = Project.new({:name => "project2", :id => nil})
+      new_project2.save()
+      new_project1.delete()
+      expect(Project.all()).to(eq([new_project2]))
+    end
+  end
+
 end
