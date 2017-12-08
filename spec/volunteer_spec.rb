@@ -14,4 +14,21 @@ describe(Volunteer) do
       expect(Volunteer.all).to(eq([]))
     end
   end
+
+  describe("#save") do
+    it("allows you to save volunteer to the database") do
+      new_volunteer = Volunteer.new({:name => "Malgorzata Haniszewska", :id => nil})
+      new_volunteer.save
+      expect(Volunteer.all).to(eq([new_volunteer]))
+    end
+  end
+
+  describe("#==") do
+    it("is the same volunteer if it has the same name") do
+      volunteer1 = Volunteer.new({:name => "Malgorzata Haniszewska", :id => nil})
+      volunteer2 = Volunteer.new({:name => "Malgorzata Haniszewska", :id => nil})
+      expect(volunteer1).to(eq(volunteer2))
+    end
+  end
+
 end

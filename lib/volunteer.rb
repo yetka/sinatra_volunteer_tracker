@@ -9,11 +9,20 @@ class Volunteer
   def self.all
     returned_volunteers = DB.exec("SELECT * FROM volunteers;")
     volunteers = []
-    returned_volunteers.each do |city|
-      name = city.fetch("name")
-      id = city.fetch("id").to_i
-      volunteers.push(City.new({:name => name, :id => id}))
+    returned_volunteers.each do |volunteer|
+      name = volunteer.fetch("name")
+      id = volunteer.fetch("id").to_i
+      volunteers.push(Volunteer.new({:name => name, :id => id}))
     end
     volunteers
+  end
+
+  def save
+    result = DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}') RETURNING id;")
+    @id = result.first.fetch("id").to_i
+  end
+
+  def ==(other_volunteer)
+    self.name.==(other_volunteer.name).&(self.id.==(other_volunteer.id))
   end
 end
