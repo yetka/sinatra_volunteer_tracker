@@ -37,3 +37,20 @@ describe("users viewing list of projects to edit", {:type => :feature}) do
     expect(page).to have_content('project1')
   end
 end
+
+describe("users viewing list of volunteers", {:type => :feature}) do
+  it("allows an user to see a list of volunteers assign to particular project") do
+    visit('/')
+    click_link('Click here to add new Project')
+    fill_in('name', :with => 'project1')
+    click_button("Add Project")
+    click_link('Click here to add new Volunteer to a Project')
+    select 'project1', from: 'project_id'
+    fill_in('name', :with => 'Malgorzata Haniszewska')
+    click_button("Add Volunteer")
+    visit('/')
+    click_link('Click here to see projects list')
+    click_link('project1')
+    expect(page).to have_content('Malgorzata Haniszewska')
+  end
+end
