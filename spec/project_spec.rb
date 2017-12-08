@@ -16,15 +16,26 @@ describe(Project) do
       end
     end
 
-    def self.all
-      returned_projects = DB.exec("SELECT * FROM projects;")
-      projects = []
-      returned_projects.each do |project|
-        name = project.fetch("name")
-        id = project.fetch("id").to_i
-        projects.push(Project.new({:name => name, :id => id}))
-      end
-      projects
+  describe(".all") do
+    it("starts off with no projects on list") do
+      expect(Project.all()).to(eq([]))
     end
+  end
+
+  describe("#save") do
+    it("lets you save project to the database") do
+      new_project = Project.new({:name => "project1", :id => nil})
+      new_project.save()
+      expect(Project.all()).to(eq([new_project]))
+    end
+  end
+
+  describe("#==") do
+    it("is the same project if it is the same name") do
+      new_project1 = Project.new({:name => "project1", :id => nil})
+      new_project2 = Project.new({:name => "project1", :id => nil})
+      expect(new_project1).to(eq(new_project2))
+    end
+  end
 
 end
