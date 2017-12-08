@@ -48,4 +48,13 @@ describe(Project) do
     end
   end
 
+  describe("#update") do
+    it("lets you update project in the database") do
+      new_project1 = Project.new({:name => "my_project", :id => nil})
+      new_project1.save()
+      new_project1.update({:name => "project1"})
+      expect(new_project1.name()).to(eq("project1"))
+    end
+  end
+
 end
