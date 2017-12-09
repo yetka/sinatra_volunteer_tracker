@@ -1,8 +1,7 @@
-<h1>Your Current Projects</h1>
-
+<h1 class="jumbotron">Your Current Projects</h1>
+<div class="current-project">
 <% if @projects.any?() %>
-<p>Click on a project to see its volunteers:</p>
-
+<h3>Click on a project to see its volunteers:</h3>
 <ul>
   <% @projects.each do |project| %>
   <li><a href="/project_voluntreers/<%= project.id() %>"><%= project.name() %></a></li>
@@ -11,3 +10,4 @@
 <% else %>
 <p>There are no projects yet!</p>
 <% end %>
+</div>

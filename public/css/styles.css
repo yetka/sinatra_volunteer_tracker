@@ -1,0 +1,24 @@
+.jumbotron {
+  text-align: center;
+}
+
+.forms-links, .form-project, .form-volunteer {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  background-color: #99ccff;
+}
+
+.current-project, .project-list, .projects-volunteers {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  background-color: #b3ffec;
+}
+
+.project-update {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  background-color: #ffff99;
+}

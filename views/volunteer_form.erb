@@ -1,15 +1,14 @@
-<h3> Add Volunteer to any Project:</h3>
-
-<form action="/volunteers" method="post">
-  <label for="project_id">Select a Project</label>
-  <select id='project_id' name='project_id' type='text'>
-    <% @projects.each() do |project| %>
-      <option value="<%= project.id()%>"> <%= project.name() %> </option>
-    <% end %>
-  </select>
-
-  <label for="name">Name of the Volunteer:</label>
-  <input id="name" name="name" type="text">
-
-  <button type="submit">Add Volunteer</button>
-</form>
+<div class="form-volunteer">
+  <h3> Add Volunteer to any Project:</h3>
+  <form action="/volunteers" method="post">
+    <label for="project_id">Select a Project</label>
+    <select id='project_id' name='project_id' type='text'>
+      <% @projects.each() do |project| %>
+        <option value="<%= project.id()%>"> <%= project.name() %> </option>
+      <% end %>
+    </select>
+    <label for="name">Name of the Volunteer:</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Add Volunteer</button>
+  </form>
+</div>
